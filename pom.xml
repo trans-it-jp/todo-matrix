@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jp.trans_it</groupId>
+	<artifactId>todo_matrix</artifactId>
+	<version>1.0.0</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>21</java.version>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+		<javafx.version>21</javafx.version>
+		<javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
+	</properties>
+	
+	<repositories>
+    <repository>
+        <id>central</id>
+        <name>Maven Central Repository</name>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-base</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+			</plugin>
+			<plugin>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>1.7.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>detect</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>${javafx.maven.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<configuration>
+							<mainClass>jp.trans_it.todo_matrix.TodoApp</mainClass>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

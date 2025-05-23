@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="10" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.trans_it.todo_matrix.controller.TodoMatrixController">
+    
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    
+    <Label text="Todo Matrix" textFill="DARKBLUE">
+        <font>
+            <Font name="Arial Bold" size="28" />
+        </font>
+    </Label>
+    
+    <Label text="タスクを緊急度と重要度で分類して管理します" textFill="GRAY">
+        <font>
+            <Font size="14" />
+        </font>
+    </Label>
+    
+    <GridPane hgap="10" vgap="10" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints percentHeight="50" />
+            <RowConstraints percentHeight="50" />
+        </rowConstraints>
+        
+        <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <fx:include fx:id="urgentImportant" source="TodoList.fxml" />
+        </VBox>
+        
+        <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <fx:include fx:id="notUrgentImportant" source="TodoList.fxml" />
+        </VBox>
+        
+        <VBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <fx:include fx:id="urgentNotImportant" source="TodoList.fxml" />
+        </VBox>
+        
+        <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <fx:include fx:id="notUrgentNotImportant" source="TodoList.fxml" />
+        </VBox>
+    </GridPane>
+</VBox>
