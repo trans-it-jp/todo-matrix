@@ -22,7 +22,9 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
 import jp.trans_it.todo_matrix.model.Todo;
 
-public class TodoListController implements Initializable {    
+public class TodoListController implements Initializable {
+    private String title;
+
 	@FXML
 	private Label titleLabel;
 	
@@ -36,7 +38,21 @@ public class TodoListController implements Initializable {
     private Label statsLabel;
     
     private ObservableList<Todo> todos = FXCollections.observableArrayList();
-    
+
+    public TodoListController(Object object) {
+        if (object instanceof String) {
+            this.title = (String)object;
+        }
+        else {
+            this.title = "Unknown";
+        }
+        System.out.println("====================" + this.title + "=======================");
+    }
+
+    public void call() {
+        System.out.println("This method is called. [TodoListController]");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         todoListView.setItems(todos);
@@ -47,6 +63,8 @@ public class TodoListController implements Initializable {
         		updateStats();
         	}
         );
+
+        setListTitle(this.title);
         
         updateStats();
     }    
@@ -68,8 +86,8 @@ public class TodoListController implements Initializable {
         }
     }
     
-	public void setListTitle(String title) {
-		titleLabel.setText(title);
+	private void setListTitle(String title) {
+        titleLabel.setText(title);
 	}
     
     private void updateStats() {

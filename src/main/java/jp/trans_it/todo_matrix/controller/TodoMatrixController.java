@@ -6,38 +6,42 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import jp.trans_it.todo_matrix.annotation.CustomController;
 
 public class TodoMatrixController implements Initializable {
     
     @FXML
     private Parent urgentImportant;
     @FXML
+    @CustomController(value="第1象限: 緊急かつ重要", id = "urgentImportantController")
     private TodoListController urgentImportantController;
     
     @FXML
     private Parent notUrgentImportant;    
     @FXML
+    @CustomController(value="第2象限: 緊急ではないが重要", id = "notUrgentImportantController")
     private TodoListController notUrgentImportantController;
     
     @FXML
     private Parent urgentNotImportant;
     @FXML
+    @CustomController(value="第3象限: 緊急だが重要でない", id = "urgentNotImportantController")
     private TodoListController urgentNotImportantController;
     
     @FXML
     private Parent notUrgentNotImportant;
     @FXML
+    @CustomController(value="第4象限: 緊急でも重要でもない", id = "notUrgentNotImportantController")
     private TodoListController notUrgentNotImportantController;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        urgentImportantController.setListTitle("第1象限: 緊急かつ重要");
-        notUrgentImportantController.setListTitle("第2象限: 緊急ではないが重要");
-        urgentNotImportantController.setListTitle("第3象限: 緊急だが重要でない");
-        notUrgentNotImportantController.setListTitle("第4象限: 緊急でも重要でもない");
-        
         addSampleData();
     }
+
+    public void call() {
+        System.out.println("This method is called. [TodoMatrixController]");
+    }    
     
     private void addSampleData() {
         urgentImportantController.addTodo("クライアントへの緊急対応");

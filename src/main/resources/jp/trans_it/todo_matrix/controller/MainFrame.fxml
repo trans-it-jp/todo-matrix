@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.trans_it.todo_matrix.controller.MainFrameController">
+  <tabs>
+    <Tab text="To Do List">
+         <content>
+            <fx:include fx:id="todoList" source="TodoList.fxml" />
+         </content></Tab>
+    <Tab text="To Do Matrix">
+         <content>
+            <fx:include fx:id="todoMatrix" source="TodoMatrix.fxml" />
+         </content></Tab>    
+  </tabs>
+</TabPane>
